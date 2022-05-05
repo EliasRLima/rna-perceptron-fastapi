@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class Amostra(BaseModel):
+class amostra(BaseModel):
     x1: float
     x2: float
     x3: float
