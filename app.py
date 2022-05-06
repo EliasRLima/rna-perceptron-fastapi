@@ -14,5 +14,5 @@ async def root():
 
 @app.post('/treinar')
 def upload_file_and_read(dataset: AmostraEntenty.Dataset):
-    return {"PERCEPTRON": dataset.conteudo}
+    return TreinadorController.treinar(dataset.conteudo)
 
