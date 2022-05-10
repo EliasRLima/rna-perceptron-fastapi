@@ -16,6 +16,10 @@ def treinar(dataset):
             u = (algoritmo['w1'] * float(elementos[0])) + (algoritmo['w2'] * float(elementos[1])) + (
                 algoritmo['w3'] * float(elementos[2]))
             y = degrau(u)
+            if x == 1:
+                print(algoritmo)
+                print(y)
+                print(int(float(elementos[3])))
             e = 0
             if int(float(elementos[3])) != y:
                 e = degrau(int(float(elementos[3]))) - y
