@@ -29,8 +29,13 @@ def treinar(dataset):
             #print(algoritmo)
     return algoritmo
 
+def buscarGrupoOleo(algoritmo, oleo):
+    u = (algoritmo['w1'] * float(oleo[0])) + (algoritmo['w2'] * float(oleo[1])) + (
+                algoritmo['w3'] * float(oleo[2]))
+    y = degrau(u)
+    return y
 
-def operacao(algoritmo, dataset):
+def separarEmDoisGrupos(algoritmo, dataset):
     p1 = []
     p2 = []
     for amostra in dataset:
