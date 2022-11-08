@@ -1,7 +1,7 @@
 from fastapi import FastAPI, File, UploadFile
 from Model import AmostraEntenty
 from Controller import TreinadorController
-from Typing import Union
+from typing import Union
 from pydantic import BaseModel
 
 
@@ -18,6 +18,11 @@ def upload_file_and_read(dataset: AmostraEntenty.Dataset):
     algoritmo = TreinadorController.treinar(dataset.conteudo)
     TreinadorController.separarEmDoisGrupos(algoritmo, dataset.conteudo)
     return {'Resultado treino', TreinadorController.perceptron2String(algoritmo)}
+
+@app.post('/log')
+def process_log(dataset: AmostraEntenty.Dataset):
+    algoritmo = TreinadorController.treinar(dataset.conteudo)
+    return {'Resultado treino', TreinadorController.verLog(algoritmo)}
 
 @app.post('/verificar/')
 def test_oleo(dataset: AmostraEntenty.Dataset, x1: Union[float, None], x2: Union[float, None], x3: Union[float, None]):
